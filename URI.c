@@ -1,11 +1,26 @@
 #include <stdio.h>
 
+int stohex(char s[])
+{
+	int i, result = 0;
+	for(i = 0; i < 2; i++)
+	{
+		if('0' <= s[i] && s[i] <= '9')
+			result = (result * 16) + (s[i] - '0');
+		else if('a' <= s[i] && s[i] <= 'f')
+			result = (result * 16) + (s[i] - 'a' + 10);
+		else if('A' <= s[i] && s[i] <= 'F')
+			result = (result * 16) + (s[i] - 'A' + 10);
+	}
+	return result;
+}
+
 int main(void)
 {
 	int count = 0, i, j;
-	char stack[4];
+	char escape;
 
-	while(1 <= count && count <= 100)
+	while(count < 1 || count > 100)
 		scanf("%d", &count);
 	
 	char input[count][80];
@@ -19,6 +34,9 @@ int main(void)
 		{
 			if(input[i][j] == '%')
 			{
+				escape = stohex(input[i] + j + 1);
+				putchar(escape);
+				j += 3;
 			}
 			else
 			{
@@ -26,6 +44,7 @@ int main(void)
 				j++;
 			}
 		}
+		putchar('\n');
 	}
 	
 	return 0;
