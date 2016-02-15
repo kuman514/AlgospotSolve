@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int stohex(char s[])
+int stohex(char s[])		// Converts string (2 letters after '%') into a hexadecimal number
 {
 	int i, result = 0;
 	for(i = 0; i < 2; i++)
@@ -21,9 +21,9 @@ int main(void)
 	char escape;
 
 	while(count < 1 || count > 100)
-		scanf("%d", &count);
+		scanf("%d", &count);			// 1 <= C <= 100
 	
-	char input[count][80];
+	char input[count][80];				// Each input string can contain at most 80 letters
 	for(i = 0; i < count; i++)
 		scanf("%s", input[i]);
 
@@ -32,19 +32,19 @@ int main(void)
 		j = 0;
 		while(input[i][j] != '\0')
 		{
-			if(input[i][j] == '%')
+			if(input[i][j] == '%')		// If it encounters '%', an escape letter will be printed.
 			{
 				escape = stohex(input[i] + j + 1);
 				putchar(escape);
-				j += 3;
+				j += 3;					// We must skip 2 letters because of the escape letter.
 			}
 			else
 			{
 				putchar(input[i][j]);
-				j++;
+				j++;					// Next letter
 			}
 		}
-		putchar('\n');
+		putchar('\n');					// End of a string
 	}
 	
 	return 0;
