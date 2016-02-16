@@ -29,6 +29,17 @@ int stonum(char str[])
 	else
 		return -1;
 }
+int OP(int p1, char oper, int p2)
+{
+	if(oper == '+')
+		return p1 + p2;
+	else if(oper == '-')
+		return p1 - p2;
+	else if(oper == '*')
+		return p1 * p2;
+	else if(oper == '/')
+		return p1 / p2;
+}
 
 int main(void)
 {
@@ -43,16 +54,22 @@ int main(void)
 	for(i = 0; i < T; i++)
 	{
 		scanf("%s %c %s = %s", A[i], &operator[i], B[i], C[i]);
-
 		qsort(A[i], strlen(A[i]), sizeof(char), compare);
 		qsort(B[i], strlen(B[i]), sizeof(char), compare);
 		qsort(C[i], strlen(C[i]), sizeof(char), compare);
-		printf("%s %c %s = %s\n", A[i], operator[i], B[i], C[i]);
+		//printf("%s %c %s = %s\n", A[i], operator[i], B[i], C[i]);
 		result[i][0] = stonum(A[i]);
 		result[i][1] = stonum(B[i]);
 		result[i][2] = stonum(C[i]);
+		//printf("%d %c %d = %d\n", result[i][0], operator[i], result[i][1], result[i][2]);
+	}
 
-		printf("%d %c %d = %d\n", result[i][0], operator[i], result[i][1], result[i][2]);
+	for(i = 0; i < T; i++)
+	{
+		if(OP(result[i][0], operator[i], result[i][1]) == result[i][2])
+			printf("YES\n");
+		else
+			printf("NO\n");
 	}
 	
 	return 0;
