@@ -43,9 +43,11 @@ int main(void)
 	for(i = 0; i < T; i++)
 	{
 		scanf("%s %c %s = %s", A[i], &operator[i], B[i], C[i]);
+
 		qsort(A[i], strlen(A[i]), sizeof(char), compare);
-		qsort(B[i], strlen(A[i]), sizeof(char), compare);
-		qsort(C[i], strlen(A[i]), sizeof(char), compare);
+		qsort(B[i], strlen(B[i]), sizeof(char), compare);
+		qsort(C[i], strlen(C[i]), sizeof(char), compare);
+		printf("%s %c %s = %s\n", A[i], operator[i], B[i], C[i]);
 		result[i][0] = stonum(A[i]);
 		result[i][1] = stonum(B[i]);
 		result[i][2] = stonum(C[i]);
