@@ -18,6 +18,11 @@ char stom(const char *input)
 	return result;
 }
 
+void printbit(code input)
+{
+	printf("%d%d%d%d%d%d%d\n", input.b1, input.b2, input.b3, input.b4, input.b5, input.b6, input.b7);
+}
+
 int main(void)
 {
 	int T = 0;
@@ -30,7 +35,7 @@ int main(void)
 	for(i = 0; i < T; ++i)
 	{
 		scanf("%s", input);
-		line[i] = stom(input);
+		line[i].message = stom(input);
 	}
 
 	return 0;
