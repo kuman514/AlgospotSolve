@@ -5,6 +5,9 @@
 
 using namespace std;
 
+const int drr[4] = {1,-1,0,0};
+const int drc[4] = {0,0,1,-1};
+
 struct tri
 {
 	int first;
@@ -28,24 +31,27 @@ int main()
 		}
 
 	queue<tri> flag;
-	int result;
+	int result = -1;
 	tri tmp(0,0,0);
 	flag.push(tmp);
 
 	while(!flag.empty())
 	{
-		auto i=flag.front();
+		tri i=flag.front();
 		flag.pop();
+
 		if(i.first<0||i.first>=N)continue;
 		if(i.second<0||i.second>=K)continue;
 		if(!check[i.first][i.second])continue;
-		if(i.first==K-1&&i.second==N-1){result=i.third;break;}
-		check[i.first][i.second]=0;
+		if((i.first==N-1)&&(i.second==K-1)){result=i.third+1;break;}
+		if((i.first!=N-1)||(i.second!=K-1))check[i.first][i.second]=0;
 		++(i.third);
 
-		//i.first -= 1;flag.push(i);	
-		//i.first += 2;flag.push(i);
-		//i.first -= 1;i.first *= 2;flag.push(i);
+		for(int j = 0; j < 4; ++j)
+		{
+			tri tmp(i.first + drr[j], i.second + drc[j], i.third);
+			flag.push(tmp);
+		}
 	}
 	cout<<result<<endl;
 	return 0;
