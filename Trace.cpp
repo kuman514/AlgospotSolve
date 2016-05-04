@@ -31,7 +31,10 @@ int main(void)
 	for(int i = 0; i < N; ++i)
 	{
 		for(int j = 0; j < N; ++j)
+		{
 			putchar((anyway[i][j] != 0) ? '1' : '0');
+			putchar(' ');
+		}
 		putchar('\n');
 	}
 	return 0;
