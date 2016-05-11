@@ -32,7 +32,7 @@ int main(void)
 		{
 			printf("-\n");
 			ra.push(satop);
-			sa.pop();
+			if(!sa.empty()) sa.pop();
 		}
 		else if(satop < input)
 		{
