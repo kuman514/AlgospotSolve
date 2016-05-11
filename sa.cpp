@@ -10,7 +10,7 @@ int main(void)
 	do{scanf("%d", &n);} while(n < 1 || n > 100000);
 
 	int i = 1;
-	do
+	for(int count = 0; count < n; count++)
 	{
 		scanf("%d", &input);
 		
@@ -40,7 +40,6 @@ int main(void)
 			break;
 		}
 	}
-	while(!sa.empty());
 
 	return 0;
 }
