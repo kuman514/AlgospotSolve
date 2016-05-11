@@ -10,14 +10,14 @@ int main(void)
 	do{scanf("%d", &n);} while(n < 1 || n > 100000);
 
 	int i = 1;
-	while(i <= n)
+	do
 	{
 		scanf("%d", &input);
 		
 		if(input > n)
 		{
 			printf("No\n");
-			return 0;
+			break;
 		}
 
 		while(i <= input)
@@ -27,20 +27,20 @@ int main(void)
 			++i;
 		}
 
-		while(sa.top() >= input)
+		int satop = sa.top();
+		if(satop >= input)
 		{
 			printf("-\n");
-			ra.push(sa.top());
+			ra.push(satop);
 			sa.pop();
 		}
+		else if(satop < input)
+		{
+			printf("No\n");
+			break;
+		}
 	}
-
-	while(!(sa.empty()))
-	{
-		ra.push(sa.top());
-		sa.pop();
-		printf("-\n");
-	}
+	while(!sa.empty());
 
 	return 0;
 }
