@@ -1,14 +1,17 @@
 #include <iostream>
 #include <cstdio>
 #include <algorithm>
-#include <stack>
 
 int main(void)
 {
 	int N;
-	scanf("%d", &N);
+	while(!(1 <= N && N <= 500000))
+		scanf("%d", &N);
+	
 	int h[N], r[N] = {0,};
-	for(int i = 0; i < N; i++) scanf("%d", &h[i]);
+	for(int i = 0; i < N; i++)
+		while(!(1 <= h[i] && h[i] <= 100000000))
+			scanf("%d", &h[i]);
 
 	for(int i = N-1; i >= 0; i--)
 	{
