@@ -17,7 +17,7 @@ int main(void)
 	{
 		for(int j = i-1; j >= 0; j--)
 		{
-			if(h[j] >= h[i]) {r[i] = j+1; break;}
+			if(h[j] > h[i]) {r[i] = j+1; break;}
 		}
 	}
 
