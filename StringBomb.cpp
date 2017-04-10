@@ -12,8 +12,10 @@ int main(void)
 	int slen = 0, blen = 0;
 	while(!((1 <= slen && slen <= 1000000) && (1 <= blen && blen <= 36)))
 	{
-		scanf("%s", sinput);
-		scanf("%s", binput);
+		char c;
+		scanf("%[0-9A-Za-z]", sinput);
+		if((c = getchar()) == '\n');
+		scanf("%[0-9A-Za-z]", binput);
 		slen = strlen(sinput);
 		blen = strlen(binput);
 	}
