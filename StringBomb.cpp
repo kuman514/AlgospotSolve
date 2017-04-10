@@ -28,8 +28,6 @@ int main(void)
 	while(!(str.empty()))
 	{
 		c_sub.push(str.top());
-		//for(int i = blen - 1; i > 0; i--)
-		//	tmp[i] = tmp[i-1];
 		std::strcpy(tmp + 1, tmp);
 		tmp[blen] = '\0';
 		tmp[0] = str.top();
