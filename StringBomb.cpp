@@ -21,14 +21,17 @@ int main(void)
 	for(int i = 0; i < slen; i++)
 		str.push(sinput[i]);
 
-	char tmp[blen + 1];
+	char tmp[blen + 2];
 	tmp[blen] = '\0';
+	tmp[blen+1] = '\0';
 
 	while(!(str.empty()))
 	{
 		c_sub.push(str.top());
-		for(int i = blen - 1; i > 0; i--)
-			tmp[i] = tmp[i-1];
+		//for(int i = blen - 1; i > 0; i--)
+		//	tmp[i] = tmp[i-1];
+		std::strcpy(tmp + 1, tmp);
+		tmp[blen] = '\0';
 		tmp[0] = str.top();
 		str.pop();
 
