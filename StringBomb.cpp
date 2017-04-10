@@ -14,8 +14,7 @@ int main(void)
 	{
 		char c;
 		scanf("%[0-9A-Za-z]", sinput);
-		if((c = getchar()) == '\n');
-		scanf("%[0-9A-Za-z]", binput);
+		scanf("%*c%[0-9A-Za-z]", binput);
 		slen = strlen(sinput);
 		blen = strlen(binput);
 	}
@@ -38,7 +37,10 @@ int main(void)
 		if(strcmp(binput, tmp) == 0)
 		{
 			for(int i = 0; i < blen; i++)
+			{
+				tmp[i] = ' ';
 				c_sub.pop();
+			}
 
 			while(!(c_sub.empty()))
 			{
@@ -60,10 +62,10 @@ int main(void)
 	}
 	else
 	{
-		int r = str.size() + 1;
-		char result[r];
-		result[r-1] = '\0';
-		for(int i = r - 2; i >= 0; i--)
+		int rsize = str.size();
+		char result[rsize+1];
+		result[rsize] = '\0';
+		for(int i = rsize-1; i >= 0; i--)
 		{
 			result[i] = str.top();
 			str.pop();
