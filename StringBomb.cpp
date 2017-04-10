@@ -9,16 +9,20 @@ int main(void)
 	std::stack<char> c_sub;
 	char sinput[1000001], binput[37];
 
-	scanf("%s", sinput);
-	scanf("%s", binput);
+	int slen = 0, blen = 0;
+	while(!((1 <= slen && slen <= 1000000) && (1 <= blen && blen <= 36)))
+	{
+		scanf("%s", sinput);
+		scanf("%s", binput);
+		slen = strlen(sinput);
+		blen = strlen(binput);
+	}
 
-	int slen = strlen(sinput), blen = strlen(binput);
 	for(int i = 0; i < slen; i++)
 		str.push(sinput[i]);
 
 	char tmp[blen + 1];
-	for(int i = 0; i <= blen; i++)
-		tmp[i] = '\0';
+	tmp[blen] = '\0';
 
 	while(!(str.empty()))
 	{
@@ -27,14 +31,11 @@ int main(void)
 			tmp[i] = tmp[i-1];
 		tmp[0] = str.top();
 		str.pop();
-	
+
 		if(strcmp(binput, tmp) == 0)
 		{
 			for(int i = 0; i < blen; i++)
-			{
-				tmp[i] = '\0';
 				c_sub.pop();
-			}
 
 			while(!(c_sub.empty()))
 			{
