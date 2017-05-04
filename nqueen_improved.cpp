@@ -31,6 +31,8 @@ int main(void)
 	for(int i = 0; i < 15; i++) tmp.index[i] = 0;
 	while(!(1 <= N && N < 15)) scanf("%d", &N);
 
+	if(N == 1) total = 1;
+
 	tmp.level = 1;
 	for(int i = 1; i <= N; i++)
 	{

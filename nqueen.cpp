@@ -38,6 +38,8 @@ int main(void)
 		blockstk.push(tmp);
 	}
 
+	if(N == 1) total = 1;
+
 	while(!blockstk.empty())
 	{
 		tmp = blockstk.top();
